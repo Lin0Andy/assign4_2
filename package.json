@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.1",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.20.1",
+    "ipfs-http-client": "^60.0.1",
+    "it-to-buffer": "^4.0.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.1",
+    "chai": "^4.4.1",
+    "dotenv": "^16.4.4"
+  }
+}
