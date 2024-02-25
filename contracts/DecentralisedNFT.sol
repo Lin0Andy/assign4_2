@@ -35,10 +35,10 @@ contract DecentralisedNFT is ERC721URIStorage, Ownable {
     }
 
     function safeTransferTokenFrom(address from, address to, uint256 tokenId) public {
-        safeTransferTokenFrom(from, to, tokenId, "");
+        safeTransferTokenFromTo(from, to, tokenId, "");
     }
 
-    function safeTransferTokenFrom(address from, address to, uint256 tokenId, bytes memory _data) public {
+    function safeTransferTokenFromTo(address from, address to, uint256 tokenId, bytes memory _data) public {
         require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: transfer caller is not owner nor approved");
         _safeTransfer(from, to, tokenId, _data);
     }

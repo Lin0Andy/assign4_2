@@ -36,7 +36,8 @@ describe("DecentralisedNFT", function () {
     describe("Transferring", function () {
         it("Should transfer token correctly", async function () {
             await decentralisedNFT.mint(addr1.address, 1, "metadataURI");
-            await decentralisedNFT.connect(addr1).safeTransferTokenFrom(addr1.address, addr2.address, 1);
+            await decentralisedNFT.connect(addr1).approveToken(addr2.address, 1);
+            await decentralisedNFT.safeTransferTokenFrom(addr1.address, addr2.address, 1);
             expect(await decentralisedNFT.ownerOf(1)).to.equal(addr2.address);
         });
 
@@ -56,7 +57,7 @@ describe("DecentralisedNFT", function () {
     describe("Token Metadata", function () {
         it("Should return correct token URI", async function () {
             await decentralisedNFT.mint(addr1.address, 1, "metadataURI");
-            expect(await decentralisedNFT.tokenURI(1)).to.equal("metadataURI");
+            expect(await decentralisedNFT.tokenURI(1)).to.equal("ipfs://metadataURI");
         });
 
         it("Should revert if querying non-existent token URI", async function () {
